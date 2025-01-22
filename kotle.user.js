@@ -6,8 +6,8 @@
 // @author       deepseek (AI) & thejenja
 // @match        https://ovk.to/*
 // @grant        none
-// @updateURL    
-// @downloadURL  
+// @updateURL    https://raw.githubusercontent.com/thejenja/kotle/refs/heads/main/kotle.user.js
+// @downloadURL  https://raw.githubusercontent.com/thejenja/kotle/refs/heads/main/kotle.user.js
 // ==/UserScript==
 
 (function () {
