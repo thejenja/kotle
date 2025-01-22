@@ -29,6 +29,7 @@
         renameSections: false,
         removeOpenVKTitle: false,
         oldSubsAndGiftsOrder: false,
+        addAllFeedLink: false,
     },
 };
 
@@ -344,6 +345,26 @@ function debugError(...args) {
             injectButton(value);
         },
     },
+    addAllFeedLink: {
+        name: 'Добавить ссылку "все" в Мои Новости',
+        type: 'checkbox',
+        key: 'addAllFeedLink',
+        handler: (enabled) => {
+            const existingLink = u('.kotle-all-feed-link');
+            if (existingLink) existingLink.remove();
+
+            if (enabled) {
+                const feedLink = u('.navigation a.link[href="/feed"]');
+                if (feedLink) {
+                    const allLink = document.createElement('a');
+                    allLink.className = 'link edit-button kotle-all-feed-link';
+                    allLink.href = '/feed/all';
+                    allLink.innerHTML = 'все';
+                    feedLink.parentNode.insertBefore(allLink, feedLink);
+                }
+            }
+        },
+    },
     debugMode: {
         name: 'Режим отладки',
         type: 'checkbox',
@@ -367,6 +388,7 @@ function debugError(...args) {
             'renameSections',
             'removeOpenVKTitle',
             'oldSubsAndGiftsOrder',
+            'addAllFeedLink',
         ], // Твики для вкладки "Скрипты"
     },
     default: {
@@ -451,6 +473,7 @@ function debugError(...args) {
             'renameSections',
             'removeOpenVKTitle',
             'oldSubsAndGiftsOrder',
+            'addAllFeedLink',
         ],
         default: ['buttonPlacement'],
     };
